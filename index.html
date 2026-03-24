@@ -1,4 +1,98 @@
-Example of counter styling:
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	
+body {font-family: sans-serif;
+	  background-color: lightblue;
+}
+.title {margin-bottom:140px; }
+
+.counter-div { font-size: 1.5rem;  }
+    
+#myBtn {font-size:1.5rem; }
+
+#myCounter {display: inline-block;
+			margin-left:35px;}
+    
+    
+    
+</style>
+</head>
+
+<body>
+
+<div class='title'> Events</div>
+
+<div class='counter-div' >
+
+<button id="s1-1" > Item</button>
+
+<div id='s1-1c' >0</div>
+
+</div>
+
+<script>
+/////////////////////////////
+/////////////////////////////
+/////////////////////////////
+
+const s1 = {
+	
+  myCount: 0,
+  
+  myFunc(){
+    alert(this.myCount);  
+  },
+  
+  count() {
+  this.myCount++
+  this.myCtr.innerHTML = this.myCount; 
+  },
+  
+  myCtr: document.getElementById("myCounter"),
+  btn: document.getElementById("myBtn"),
+  
+  init_cnt_btn() {
+  	this.btn.addEventListener("click", () => this.count());
+  }
+  
+};
+
+// Call it once at start.
+s1.init_cnt_btn();
+
+if (s1.myCount == 0) {
+	s1.myCtr.style.color = ;//"lightblue";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</script>
+
+</body>
+</html>Example of counter styling:
 <!DOCTYPE html>
 <html>
 <head>
