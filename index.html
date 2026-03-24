@@ -5,7 +5,7 @@
 	
 body { font-size: 2rem; font-family: sans-serif; background-color: lightblue; }
 .title {margin-bottom:140px; }
-.counter-div { display:flex; gap:45px;}
+.item-div { display:flex; gap:45px; margin-bottom:15px;}
  
 </style>
 </head>
@@ -14,7 +14,8 @@ body { font-size: 2rem; font-family: sans-serif; background-color: lightblue; }
 
 <div class='title'> events</div>
 
-<div class='counter-div' >
+
+<div class='item-div' >
 
 <button id="s1-1" > Item</button>
 
@@ -22,7 +23,14 @@ body { font-size: 2rem; font-family: sans-serif; background-color: lightblue; }
 
 </div>
 
-<button id="s1-reset" > s1 reset</button>
+
+<div class='item-div' >
+
+<button id="s1-reset" > 
+	s1 reset
+</button>
+
+</div>
 
 
 <script>
@@ -49,7 +57,7 @@ const s1 = {
   
 
   initialize_item_button() {
-  	this.button.addEventListener("click", () => this.alert());
+  	this.button.addEventListener("click", () => this.add());
   },
   
   initialize_reset_button() {
