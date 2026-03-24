@@ -7,7 +7,7 @@ body { font-family: sans-serif; background-color: lightblue; }
 .title {margin-bottom:140px; }
 .item-div {  margin-bottom:8px;}
 .item-button {vertical-align: middle;}
-.item-counter-el {display:inline-block;vertical-align: middle;font-size:1.4rem; margin-left: 30px; font-weight:;}
+.item-counter-el {display:none;vertical-align: middle;font-size:1.35rem; margin-left: 30px; font-weight:;}
 .reset-item-div {  margin-top:15px;}
 </style>
 </head>
@@ -51,11 +51,16 @@ const s1 = {
   add() {
   this.count++
   this.counter.innerHTML = this.count; 
+  this.show_counter();
   },
+  
+  show_counter(){this.counter.style.display = "inline-block"},
+  hide_counter(){this.counter.style.display = "none"},
   
   reset(){
     this.count = 0;
     this.update_counter();
+    this.hide_counter();
   },
   
   update_counter(){this.counter.innerHTML = this.count; },
