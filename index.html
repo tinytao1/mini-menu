@@ -3,34 +3,27 @@
 <head>
 <style>
 	
-body {font-family: sans-serif;
-	  background-color: lightblue;
-}
+body { font-size: 2rem; font-family: sans-serif; background-color: lightblue; }
 .title {margin-bottom:140px; }
-
-.counter-div { font-size: 1.5rem;  }
-    
-#myBtn {font-size:1.5rem; }
-
-#myCounter {display: inline-block;
-			margin-left:35px;}
-    
-    
-    
+.counter-div { display:flex; gap:45px;}
+ 
 </style>
 </head>
 
 <body>
 
-<div class='title'> Events</div>
+<div class='title'> events</div>
 
 <div class='counter-div' >
 
 <button id="s1-1" > Item</button>
 
-<div id='s1-1c' >0</div>
+<div id='s1-1c' class='counter-el' >0</div>
 
 </div>
+
+<button id="s1-reset" > s1 reset</button>
+
 
 <script>
 /////////////////////////////
@@ -39,32 +32,40 @@ body {font-family: sans-serif;
 
 const s1 = {
 	
-  myCount: 0,
+  count: 0,
   
-  myFunc(){
-    alert(this.myCount);  
+  alert(){
+    alert(this.count);  
   },
   
-  count() {
-  this.myCount++
-  this.myCtr.innerHTML = this.myCount; 
+  add() {
+  this.count++
+  this.counter.innerHTML = this.count; 
   },
   
-  myCtr: document.getElementById("myCounter"),
-  btn: document.getElementById("myBtn"),
+  button: document.getElementById("s1-1"),
+  counter: document.getElementById("s1-1c"),
+  reset: document.getElementById("s1-reset"),
   
-  init_cnt_btn() {
-  	this.btn.addEventListener("click", () => this.count());
-  }
+
+  initialize_item_button() {
+  	this.button.addEventListener("click", () => this.alert());
+  },
+  
+  initialize_reset_button() {
+  	this.reset.addEventListener("click", () => this.alert());
+  },
   
 };
 
 // Call it once at start.
-s1.init_cnt_btn();
+s1.initialize_item_button();
+s1.initialize_reset_button();
 
-if (s1.myCount == 0) {
-	s1.myCtr.style.color = ;//"lightblue";
-}
+/*
+ if (s1.count == 0) {
+	s1.counter.style.color = "lightblue";
+ } */
 
 
 
