@@ -3,10 +3,12 @@
 <head>
 <style>
 	
-body { font-size: 2rem; font-family: sans-serif; background-color: lightblue; }
+body { font-family: sans-serif; background-color: lightblue; }
 .title {margin-bottom:140px; }
-.item-div { display:flex; gap:45px; margin-bottom:15px;}
- 
+.item-div {  margin-bottom:8px;}
+.item-button {vertical-align: middle;}
+.item-counter-el {display:inline-block;vertical-align: middle;font-size:1.4rem; margin-left: 30px; font-weight:;}
+.reset-item-div {  margin-top:15px;}
 </style>
 </head>
 
@@ -17,14 +19,14 @@ body { font-size: 2rem; font-family: sans-serif; background-color: lightblue; }
 
 <div class='item-div' >
 
-<button id="s1-1" > Item</button>
+<button id="s1-1" class='item-button'> Item</button>
 
-<div id='s1-1c' class='counter-el' >0</div>
+<div id='s1-1c' class='item-counter-el' >0</div>
 
 </div>
 
 
-<div class='item-div' >
+<div class='reset-item-div' >
 
 <button id="s1-reset" > 
 	s1 reset
@@ -51,9 +53,16 @@ const s1 = {
   this.counter.innerHTML = this.count; 
   },
   
+  reset(){
+    this.count = 0;
+    this.update_counter();
+  },
+  
+  update_counter(){this.counter.innerHTML = this.count; },
+  
   button: document.getElementById("s1-1"),
   counter: document.getElementById("s1-1c"),
-  reset: document.getElementById("s1-reset"),
+  resetButton: document.getElementById("s1-reset"),
   
 
   initialize_item_button() {
@@ -61,7 +70,7 @@ const s1 = {
   },
   
   initialize_reset_button() {
-  	this.reset.addEventListener("click", () => this.alert());
+  	this.resetButton.addEventListener("click", () => this.reset());
   },
   
 };
@@ -69,12 +78,6 @@ const s1 = {
 // Call it once at start.
 s1.initialize_item_button();
 s1.initialize_reset_button();
-
-/*
- if (s1.count == 0) {
-	s1.counter.style.color = "lightblue";
- } */
-
 
 
 
@@ -99,6 +102,16 @@ s1.initialize_reset_button();
 
   
 </script>
+<!-- project notes
+ font-size: 2rem;
+/*
+ if (s1.count == 0) {
+	s1.counter.style.color = "lightblue";
+ } */
 
+.counter-el {display:none;}
+.item-div { display:flex; gap:45px; margin-bottom:15px;}
+
+-->
 </body>
 </html>
